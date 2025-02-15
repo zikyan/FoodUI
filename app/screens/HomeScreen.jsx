@@ -5,14 +5,16 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  View
+  View,
+  FlatList,
 } from "react-native";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import TopBar from "../components/HomeScreenComponents/TopBar";
 import TextBar from "../components/HomeScreenComponents/TextBar";
 import SearchBar from "../components/HomeScreenComponents/SearchBar";
 import Categories from "../components/HomeScreenComponents/Categories";
+import Recipies from "../components/HomeScreenComponents/Recipies";
 import axios from "axios";
 
 const HomeScreen = () => {
@@ -40,7 +42,14 @@ const HomeScreen = () => {
         <TopBar />
         <TextBar />
         <SearchBar />
-        {category.length>0 && <Categories category={category} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>}
+        {category.length > 0 && (
+          <Categories
+            category={category}
+            activeCategory={activeCategory}
+            setActiveCategory={setActiveCategory}
+          />
+        )}
+        <Recipies category={category} />
       </ScrollView>
     </SafeAreaView>
   );

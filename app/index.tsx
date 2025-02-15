@@ -7,6 +7,7 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Animated, { useSharedValue, withSpring } from "react-native-reanimated";
+import OnboardingScreen from "./OnboardingScreen";
 
 export default function Index() {
   const ring1Padding = useSharedValue(0);
@@ -23,12 +24,12 @@ export default function Index() {
       () => (ring2Padding.value = withSpring(ring1Padding.value + hp(2.5))),
       300
     );
-    setTimeout(() => router.replace("./screens/HomeScreen"), 2500);
+    //setTimeout(() => router.replace("./screens/HomeScreen"), 2500);
   }, []);
   return (
     <View className="flex-1 justify-center items-center bg-amber-500">
       <StatusBar barStyle="light-content" />
-      <Animated.View
+      {/* <Animated.View
         className="bg-white/20 rounded-full"
         style={{ padding: ring2Padding }}
       >
@@ -55,7 +56,8 @@ export default function Index() {
         >
           Food is always right!
         </Text>
-      </View>
+      </View> */}
+      <OnboardingScreen />
     </View>
   );
 }
